@@ -1,0 +1,92 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+
+    <title>HTML positioning</title>
+    <meta name="description" content="HTML positioning">
+    <meta name="author" content="Kul Alexey">
+    <link rel="stylesheet" href="css/index_block.css" id="css_block">
+    <link rel="stylesheet alternate" href="css/index_absolute.css" id="css_absolute">
+    <link rel="stylesheet alternate" href="css/index_flex.css" id="css_flex">
+</head>
+<body>
+    <header id="main_header">
+        <hgroup>
+            <h1>HTML positioning</h1>
+            <div id="logo">LOGO</div>
+        </hgroup>        
+    </header>
+    <nav id="main_menu">
+        <ul>
+            <li><a href="#main_section">Content</a></li>
+            <li><a href="#main_footer">Footer</a></li>
+        </ul>
+    </nav>
+    <section id="main_section">
+        <article>Useful content</article>
+    </section>
+    <aside id="left_side">
+        <ul>
+            <li><a href="#" class="block">Block</a></li>
+            <li><a href="#" class="absolute">Absolute</a></li>
+            <li><a href="#" class="flex">Flex</a></li>
+        </ul>
+    </aside>
+    <aside id="right_side">
+        <ul>
+            <li><a href="#" class="block">Block</a></li>
+            <li><a href="#" class="absolute">Absolute</a></li>
+            <li><a href="#" class="flex">Flex</a></li>
+        </ul>
+    </aside>
+    <footer id="main_footer">
+        Main footer
+    </footer>
+    
+    <script type="text/javascript">
+        (function() {
+            var css_block = document.getElementById('css_block');
+            var css_absolute = document.getElementById('css_absolute');
+            var css_flex = document.getElementById('css_flex');
+
+            var blocks = document.getElementsByClassName('block');
+            var absolutes = document.getElementsByClassName('absolute');
+            var flexes = document.getElementsByClassName('flex');
+            
+            bindEventHandler(blocks, "click", function() {                
+                enableStylesheet(css_block);
+                disableStylesheet(css_absolute);
+                disableStylesheet(css_flex);
+            });
+
+            bindEventHandler(absolutes, "click", function() { 
+                enableStylesheet(css_absolute); 
+                disableStylesheet(css_block); 
+                disableStylesheet(css_flex); 
+            });
+
+            bindEventHandler(flexes, "click", function() {                
+                enableStylesheet(css_flex);
+                disableStylesheet(css_block); 
+                disableStylesheet(css_absolute); 
+            });
+
+            function enableStylesheet (node) {
+                node.rel = 'stylesheet';
+            }
+          
+            function disableStylesheet (node) {
+                node.rel = 'alternate stylesheet';
+            }
+
+            function bindEventHandler(arr, eventName, handler) {                
+                for(let i = 0; i < arr.length; i++) {
+                    arr[i].addEventListener(eventName, handler, false);
+                }
+            }
+        })();
+    </script>
+</body>
+</html>

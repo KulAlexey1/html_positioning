@@ -1,0 +1,54 @@
+* {
+    width: inherit;
+    height: inherit;
+    margin:0;    
+    padding: 0;
+    font-size: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+header, main, nav, section, aside, footer, article,
+div {
+    display: block;
+    border: 1px solid blue;
+}
+
+#main_header {
+    height: 14vh;
+    margin-bottom: 7vh;
+}
+
+#main_header * {
+    display: inline-block;
+}
+
+#main_menu {
+    height: 14vh;
+    margin-bottom: 7vh;
+}
+
+#main_section {
+    height: 14vh;
+    margin-bottom: 7vh;
+}
+
+#left_side {
+    margin-left: 7vh;
+}
+
+#right_side {
+
+}
+
+#main_footer {
+
+}
+
+#logo {
+    margin-left: 7vw;
+    width: 14vh;
+}
+
